@@ -1,0 +1,34 @@
+<div class="  flex justify-content-center align-items-center m-6 ">
+    <div class=" grid shadow-4 p-4 w-30rem">
+        <div class="col-12 flex justify-content-center align-items-center">
+            <i class="pi pi-user-plus font-light text-4xl text-primary "></i>
+        </div>
+        <div class="col-12 flex justify-content-between align-items-center">
+            <b>Firstname :</b>
+            <input  type="text" pInputText [(ngModel)]="newUser.Firstname" class="w-15rem" />
+        </div>
+        <div class="col-12 flex justify-content-between align-items-center">
+            <b>Lastname :</b>
+            <input type="text" pInputText [(ngModel)]="newUser.Lastname" class="w-15rem" />
+        </div>
+        <div class="col-12 flex justify-content-between align-items-center">
+            <b>Role :</b>
+            <p-dropdown [autoDisplayFirst]="false" [options]="['Admin' , 'SuperAdmin' , 'User']"
+                [(ngModel)]="newUser.role" placeholder="Choose Role" styleClass="w-15rem" appendTo="body"></p-dropdown>
+
+        </div>
+        <div class="col-12 flex justify-content-between align-items-center">
+            <b>Email :</b>
+            <input type="email" pInputText [(ngModel)]="newUser.email" class="w-15rem" />
+        </div>
+        <div class="col-12 flex justify-content-between align-items-center">
+            <b>Phone Number :</b>
+            <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false" [(ngModel)]="newUser.phoneNo"
+                class="w-15rem" [min]="0"> </p-inputNumber>
+        </div>
+        <div class="col-12 flex justify-content-center align-items-center ">
+            <p-button [label]=" loading?'Loading...':'Add'" [icon]="loading?'pi pi-spin pi-spinner':'pi pi-plus'"
+                iconPos="right" (click)="loading?'':createUser()" size="small"> </p-button>
+        </div>
+    </div>
+</div>
